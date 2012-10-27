@@ -35,6 +35,7 @@ class PHPCoffeeScriptFilter implements \Assetic\Filter\FilterInterface
      */
     public function filterDump(AssetInterface $asset)
     {
-        $asset->setContent( \CoffeeScript\Compiler::compile($asset->getContent()) );
+        $filename = $asset->getSourceRoot().DIRECTORY_SEPARATOR.$asset->getSourcePath();
+        $asset->setContent( \CoffeeScript\Compiler::compile($asset->getContent(), array('filename'=>$filename ) ));
     }
 }
