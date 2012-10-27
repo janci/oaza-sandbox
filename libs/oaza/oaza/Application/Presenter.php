@@ -21,7 +21,8 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
      * @return \Nette\ComponentModel\IComponent|void
      */
     public function createComponent($name){
-
+        $control = parent::createComponent($name);
+        if(isset($control)) return $control;
     }
 
 }

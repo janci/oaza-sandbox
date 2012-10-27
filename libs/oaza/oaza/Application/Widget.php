@@ -24,6 +24,8 @@ abstract class Widget extends Control
 {
     protected $container;
 
+    private $settingMode=false;
+
     /**
      * Initialize render component
      */
@@ -40,11 +42,24 @@ abstract class Widget extends Control
     }
 
     /**
+     * Sets component to setting mode
+     * @param bool $state
+     * @return \Oaza\Application\Widget
+     */
+    public function settingMode($state=true){
+        $this->settingMode = $state;
+        return $this;
+    }
+
+    /**
      * Render template
      * @param array|null $params
      */
     public function render($params=null){
         $this->container->addClass('widget');
+        if($this->settingMode)
+            $this->container->addClass('manage');
+
         $this->container->setHtml($this->template);
 
         echo $this->container;
