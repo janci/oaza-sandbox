@@ -11,3 +11,4 @@ libs/oaza/temp/cache
 www/*.build.js
 www/*.build.css
 libs/autoload.php
+.idea
