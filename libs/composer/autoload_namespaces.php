@@ -6,4 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Symfony\\Component\\Process' => $vendorDir . '/symfony/process/',
+    'CoffeeScript' => $vendorDir . '/coffeescript/coffeescript/src/',
+    'Assetic' => $vendorDir . '/kriswallsmith/assetic/src/',
 );
