@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of the Oaza Framework
+ *
+ * Copyright (c) 2012 Jan Svantner (http://www.janci.net)
+ *
+ * For the full copyright and license information, please view
+ * the file license.txt that was distributed with this source code.
+ */
+
 namespace Oaza\Asset;
 
 
@@ -7,6 +16,9 @@ use Assetic\Asset\FileAsset;
 use Assetic\Cache\FilesystemCache;
 use Assetic\Filter\Yui;
 
+/**
+ * Asset loader
+ */
 class AssetsLoader extends \Oaza\Object
 {
     const DEVELOPMENT='dev';
@@ -16,9 +28,16 @@ class AssetsLoader extends \Oaza\Object
     const JAVASCRIPT = 0x010;
     const CSS = 0x100;
 
+    /** @var string */
     private $mode;
+
+    /** @var array */
     private $dirs;
+
+    /** @var string */
     private $cacheDir;
+
+    /** @var string */
     private $wwwDir;
 
     public function __construct($cacheDir="/tmp", $wwwDir=""){
@@ -26,6 +45,11 @@ class AssetsLoader extends \Oaza\Object
         $this->wwwDir = $wwwDir;
     }
 
+    /**
+     * Register new directory for asset type
+     * @param $type
+     * @param $directory
+     */
     public function addDirectory($type, $directory){
         if($type & self::COFFEE) {
             $this->dirs[self::COFFEE][] = $directory;
@@ -41,10 +65,17 @@ class AssetsLoader extends \Oaza\Object
 
     }
 
+    /**
+     * Sets environment
+     * @param $environment
+     */
     public function setEnvironment($environment){
         $this->mode = $environment;
     }
 
+    /**
+     * Build public files to www directory
+     */
     public function build(){
         if($this->mode == self::DEVELOPMENT) return;
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Oaza Framework (http://nette.org)
+ * This file is part of the Oaza Framework
  *
  * Copyright (c) 2012 Jan Svantner (http://www.janci.net)
  *
