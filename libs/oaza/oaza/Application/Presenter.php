@@ -24,12 +24,15 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
     /** @var \Oaza\Oaza */
     protected $oaza;
 
+    /** @var \Nette\Localization\ITranslator */
+    protected  $translator;
+
     /**
      * Append Oaza dependency by constructor
      * @param \Nette\DI\Container $context
      * @param \Oaza\Oaza $oaza
      */
-    public function __construct(\Nette\DI\Container $context, \Oaza\Oaza $oaza=null){
+    public function __construct(\Nette\DI\Container $context, \Oaza\Oaza $oaza=null, \Nette\Localization\ITranslator $translator=null){
         parent::__construct($context);
 
         if(!isset($oaza)) {
@@ -38,6 +41,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
         }
 
         $this->oaza = $oaza;
+        $this->translator = $translator;
     }
 
     /**
@@ -67,6 +71,9 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
                 $control->startupCheck();
                 $control->settingMode();
 
+                if(isset($this->translator))
+                    $control->getTemplate()->setTranslator($this->translator);
+
                 if(isset($this->oazaControlsProperties, $this->oazaControlsProperties[$name]))
                     $control->setPropertiesValues($this->oazaControlsProperties[$name]);
 
@@ -74,6 +81,11 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
             }
             return $control;
         }
+    }
+
+    public function beforeRender(){
+        if(isset($this->translator))
+            $this->getTemplate()->setTranslator($this->translator);
     }
 
     public function shutdown($response){
