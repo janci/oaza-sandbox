@@ -22,6 +22,21 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
     private $oazaControlsProperties;
 
     /**
+     * Append Oaza dependency by constructor
+     * @param \Nette\DI\Container $context
+     * @param \Oaza\Oaza $oaza
+     */
+    public function __construct(\Nette\DI\Container $context, \Oaza\Oaza $oaza=null){
+        parent::__construct($context);
+
+        if(!isset($oaza)) {
+            $oaza = new \Oaza\Oaza();
+            $oaza->registerExternalSources();
+        }
+
+    }
+
+    /**
      * Sets oaza controls for autoloading
      * @param $controls
      * @param array $properties
