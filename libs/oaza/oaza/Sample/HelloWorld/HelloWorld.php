@@ -29,6 +29,9 @@ class HelloWorld extends \Oaza\Application\Widget
 
     public function render($params=null){
         $this->template->text = $this->getProperty("text");
+        $this->container->addStyle('width', "200px");
+        $this->container->addStyle('height', "100px");
+        $this->container->addStyle('background-color', "#ffdddd");
         parent::render($params);
     }
 }

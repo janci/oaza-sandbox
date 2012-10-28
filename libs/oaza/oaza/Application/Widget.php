@@ -64,6 +64,12 @@ abstract class Widget extends Control
 
         $this->container->setHtml($this->template);
 
+        $minHeight = $this->getProperty('min-height')->getValue();
+        $minWidth = $this->getProperty('min-width')->getValue();
+
+        $this->container->addStyle('min-height', "{$minHeight}px");
+        $this->container->addStyle('min-width', "{$minWidth}px");
+
         echo $this->container;
     }
 }

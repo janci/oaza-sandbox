@@ -1,0 +1,4 @@
+.manageblock {display: none; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKHAsYIqJ5sC4AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAFUlEQVQI12M8duxYOAMDAwMTAxQAACoYAq1HHoQOAAAAAElFTkSuQmCC"); height: 20px; width: 100%; position: absolute;}
+.widget.manage {position: relative;}
+.manageblock .manedit {float:right;}
+.manageblock .mandelete {float:right;}

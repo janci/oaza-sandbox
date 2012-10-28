@@ -51,7 +51,7 @@ class Oaza extends Object
     public function addJavascriptLibrary($library){
         if(!isset($this->javascriptLibraries[$library])) {
             $ds = DIRECTORY_SEPARATOR;
-            $source = $this->oazaPublicDir."{$ds}javascript{$ds}{$this->javascriptLibraries[$library]}";
+            $source = $this->oazaPublicDir."{$ds}javascript{$ds}{$library}";
             $this->assetLoader->addDirectory(AssetsLoader::JAVASCRIPT, $source);
         }
 
@@ -65,6 +65,7 @@ class Oaza extends Object
 
         $ds = DIRECTORY_SEPARATOR;
         $this->assetLoader->addDirectory(AssetsLoader::COFFEE, $this->oazaPublicDir."{$ds}coffee{$ds}*.coffee");
+        $this->assetLoader->addDirectory(AssetsLoader::CSS, $this->oazaPublicDir."{$ds}css{$ds}*.css");
         $this->addJavascriptLibrary(JavascriptLibrary::JQUERY);
     }
 
