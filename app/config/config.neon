@@ -26,6 +26,10 @@ common:
 
 	services:
 		authenticator: Authenticator
+		oaza:
+			class: \Oaza\Oaza
+			setup:
+				- registerExternalSources()
 
 
 	factories:

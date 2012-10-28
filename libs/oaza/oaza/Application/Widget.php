@@ -22,8 +22,10 @@ use \Nette\Utils\Html;
  */
 abstract class Widget extends Control
 {
+    /** @var Html */
     protected $container;
 
+    /** @var bool */
     private $settingMode=false;
 
     /**
