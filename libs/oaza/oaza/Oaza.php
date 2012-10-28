@@ -11,6 +11,7 @@
 namespace Oaza;
 
 use Oaza\Asset\AssetsLoader;
+use Oaza\Asset\JavascriptLibrary;
 
 /**
  * Oaza framework service
@@ -25,6 +26,9 @@ class Oaza extends Object
 
     /** @var \Oaza\Asset\AssetsLoader */
     private $assetLoader;
+
+    /** @var array */
+    private $javascriptLibraries;
 
 
     public function __construct(){
@@ -41,12 +45,30 @@ class Oaza extends Object
     }
 
     /**
+     * Add javascript library or framework
+     * @param $library
+     */
+    public function addJavascriptLibrary($library){
+        if(!isset($this->javascriptLibraries[$library])) {
+            $ds = DIRECTORY_SEPARATOR;
+            $source = $this->oazaPublicDir."{$ds}javascript{$ds}{$this->javascriptLibraries[$library]}";
+            $this->assetLoader->addDirectory(AssetsLoader::JAVASCRIPT, $source);
+        }
+
+        $this->javascriptLibraries[$library] = true;
+    }
+
+    /**
      * Load javascript and cascades styles for Oaza framework
      */
     public function registerExternalSources(){
 
         $ds = DIRECTORY_SEPARATOR;
         $this->assetLoader->addDirectory(AssetsLoader::COFFEE, $this->oazaPublicDir."{$ds}coffee{$ds}*.coffee");
+        $this->addJavascriptLibrary(JavascriptLibrary::JQUERY);
+    }
+
+    public function buildExternalSources(){
         $this->assetLoader->build();
     }
 

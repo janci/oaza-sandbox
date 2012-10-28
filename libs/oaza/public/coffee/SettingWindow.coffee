@@ -1,14 +1,14 @@
 class SettingWindow
-  constructor (form)->
+  constructor: (form)->
     this.form = form
 
-  open ()->
+  open: ()->
     a = "a"
 
-  save ()->
+  save: ()->
     save = "save"
 
-  close ()->
+  close: ()->
     b = "b"
 
 

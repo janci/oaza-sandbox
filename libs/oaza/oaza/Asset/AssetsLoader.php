@@ -99,7 +99,7 @@ class AssetsLoader extends \Oaza\Object
             foreach($this->dirs[self::CSS] as $file ){
                 $coffeeCollection = new \Assetic\Asset\AssetCollection(
                     array(new \Assetic\Asset\GlobAsset($file)),
-                    array(new \Assetic\Filter\CssMinFilter())
+                    array() //new \Assetic\Filter\CssMinFilter()
                 );
 
                 $css = new AssetCache(
@@ -113,7 +113,7 @@ class AssetsLoader extends \Oaza\Object
             foreach($this->dirs[self::JAVASCRIPT] as $file ){
                 $coffeeCollection = new \Assetic\Asset\AssetCollection(
                     array(new \Assetic\Asset\GlobAsset($file)),
-                    array(new \Assetic\Filter\JSMinFilter())
+                    array() //new \Assetic\Filter\JSMinFilter()
                 );
 
                 $js = new AssetCache(
@@ -123,14 +123,23 @@ class AssetsLoader extends \Oaza\Object
             }
         }
 
-        if(isset($js))
-            file_put_contents("javascript.build.js", $js->dump());
+        if(isset($js))  {
+            $cjs = $js->dump();
+            if(!file_exists("javascript.build.css") ||  md5(file_get_contents("javascript.build.js")) != md5($cjs) )
+                file_put_contents("javascript.build.js", $cjs);
+        }
 
-        if(isset($coffee))
-            file_put_contents("coffee.build.js", $coffee->dump());
+        if(isset($coffee)) {
+            $ccoffee = $coffee->dump();
+            if(!file_exists("coffee.build.css") || md5(file_get_contents("coffee.build.js")) != md5($ccoffee) )
+                file_put_contents("coffee.build.js", $ccoffee);
+        }
 
-        if(isset($css))
-            file_put_contents("css.build.css", $css->dump());
+        if(isset($css)) {
+            $ccss = $css->dump();
+            if(!file_exists("css.build.css") || md5(file_get_contents("css.build.css")) != md5($ccss) )
+                file_put_contents("css.build.css", $css->dump());
+        }
 
     }
 

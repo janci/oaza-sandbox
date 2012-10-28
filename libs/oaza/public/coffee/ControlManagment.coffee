@@ -1,5 +1,14 @@
 class ControlManagment
-  constructor ()->
-    alert('x')
+  constructor: ()->
+    elements = document.getElementsByClassName('widget manage');
+#    for(i=0; i<elements.length; i++)
+#      element = elements[i]
+#      console.log(element);
 
-window.ControlManagment = ControlManagment;
+    #console.log(elements);
+
+loadOaza = ()->
+  cm = new ControlManagment;
+
+window.ControlManagment = ControlManagment
+window.onload = loadOaza

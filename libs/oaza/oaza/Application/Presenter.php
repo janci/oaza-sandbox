@@ -21,6 +21,9 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
     /** @var array */
     private $oazaControlsProperties;
 
+    /** @var \Oaza\Oaza */
+    protected $oaza;
+
     /**
      * Append Oaza dependency by constructor
      * @param \Nette\DI\Container $context
@@ -34,6 +37,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
             $oaza->registerExternalSources();
         }
 
+        $this->oaza = $oaza;
     }
 
     /**
@@ -70,6 +74,11 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
             }
             return $control;
         }
+    }
+
+    public function shutdown($response){
+        parent::shutdown($response);
+        $this->oaza->buildExternalSources();
     }
 
 }
