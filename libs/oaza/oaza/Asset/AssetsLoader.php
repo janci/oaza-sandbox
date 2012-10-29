@@ -82,45 +82,50 @@ class AssetsLoader extends \Oaza\Object
         if(isset($this->dirs[self::COFFEE])) {
             \CoffeeScript\Init::load();
 
-            foreach($this->dirs[self::COFFEE] as $file ){
-                $coffeeCollection = new \Assetic\Asset\AssetCollection(
-                    array(new \Assetic\Asset\GlobAsset($file)),
-                    array(new \Oaza\Asset\Filter\PHPCoffeeScriptFilter())
-                );
+            foreach($this->dirs[self::COFFEE] as $file )
+                $assetFiles[] = new \Assetic\Asset\GlobAsset($file);
 
-                $coffee = new AssetCache(
-                    $coffeeCollection,
-                    new FilesystemCache($this->cacheDir)
-                );
-            }
+            $coffeeCollection = new \Assetic\Asset\AssetCollection(
+                $assetFiles,
+                array(new \Oaza\Asset\Filter\PHPCoffeeScriptFilter())
+            );
+
+            $coffee = new AssetCache(
+                $coffeeCollection,
+                new FilesystemCache($this->cacheDir)
+            );
         }
 
+        $assetFiles = array();
         if(isset($this->dirs[self::CSS])) {
-            foreach($this->dirs[self::CSS] as $file ){
-                $coffeeCollection = new \Assetic\Asset\AssetCollection(
-                    array(new \Assetic\Asset\GlobAsset($file)),
-                    array() //new \Assetic\Filter\CssMinFilter()
-                );
+            foreach($this->dirs[self::CSS] as $file )
+                $assetFiles[] = new \Assetic\Asset\GlobAsset($file);
 
-                $css = new AssetCache(
-                    $coffeeCollection,
-                    new FilesystemCache($this->cacheDir)
-                );
-            }
+            $cssCollection = new \Assetic\Asset\AssetCollection(
+                $assetFiles,
+                array() //new \Assetic\Filter\CssMinFilter()
+            );
+
+            $css = new AssetCache(
+                $cssCollection,
+                new FilesystemCache($this->cacheDir)
+            );
         }
 
+        $assetFiles = array();
         if(isset($this->dirs[self::JAVASCRIPT])) {
-            foreach($this->dirs[self::JAVASCRIPT] as $file ){
-                $coffeeCollection = new \Assetic\Asset\AssetCollection(
-                    array(new \Assetic\Asset\GlobAsset($file)),
-                    array() //new \Assetic\Filter\JSMinFilter()
-                );
+            foreach($this->dirs[self::JAVASCRIPT] as $file )
+                $assetFiles[] = new \Assetic\Asset\GlobAsset($file);
 
-                $js = new AssetCache(
-                    $coffeeCollection,
-                    new FilesystemCache($this->cacheDir)
-                );
-            }
+            $javascriptCollection = new \Assetic\Asset\AssetCollection(
+                $assetFiles,
+                array() //new \Assetic\Filter\JSMinFilter()
+            );
+
+            $js = new AssetCache(
+                $javascriptCollection,
+                new FilesystemCache($this->cacheDir)
+            );
         }
 
         if(isset($js))  {

@@ -67,6 +67,7 @@ class Oaza extends Object
         $this->assetLoader->addDirectory(AssetsLoader::COFFEE, $this->oazaPublicDir."{$ds}coffee{$ds}*.coffee");
         $this->assetLoader->addDirectory(AssetsLoader::CSS, $this->oazaPublicDir."{$ds}css{$ds}*.css");
         $this->addJavascriptLibrary(JavascriptLibrary::JQUERY);
+        $this->addJavascriptLibrary(JavascriptLibrary::JQUERY_UI);
     }
 
     public function buildExternalSources(){

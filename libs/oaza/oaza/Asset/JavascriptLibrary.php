@@ -16,5 +16,6 @@ namespace Oaza\Asset;
 class JavascriptLibrary
 {
     const JQUERY = "jquery-1.8.2.min.js";
+    const JQUERY_UI = "jquery-ui.min.js";
     const JQUERY_1_8_2 = "jquery-1.8.2.min.js";
 }

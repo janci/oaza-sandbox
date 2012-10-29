@@ -17,6 +17,13 @@ class ControlManagment
         )
 
     )
+    #cfg.selector
+    adapter('body').on('click','.manageblock .mandelete', ()->
+      if(confirm('Opravdu chcete vymazať komponentu?'))
+        adapter(this).parents(cfg.selector).remove();
+
+      false;
+    );
 
 loadOaza = ()->
   cm = new ControlManagment(window.jQueryAdapter);
