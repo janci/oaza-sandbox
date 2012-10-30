@@ -17,5 +17,9 @@ class JavascriptLibrary
 {
     const JQUERY = "jquery-1.8.2.min.js";
     const JQUERY_UI = "jquery-ui.min.js";
+    const JQUERY_TOOLS = "jquery.tools.min.js";
+
     const JQUERY_1_8_2 = "jquery-1.8.2.min.js";
+    const JQUERY_UI_1_9_0 = "jquery-ui.min.js";
+    const JQUERY_TOOLS_1_2_7 = "jquery-1.8.2.min.js";
 }

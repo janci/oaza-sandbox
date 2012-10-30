@@ -64,10 +64,16 @@ class Oaza extends Object
     public function registerExternalSources(){
 
         $ds = DIRECTORY_SEPARATOR;
+        if(defined(APP_DIR)) {
+            //if(file_exists(APP_DIR).$ds."controls".$ds."*");
+        }
+
         $this->assetLoader->addDirectory(AssetsLoader::COFFEE, $this->oazaPublicDir."{$ds}coffee{$ds}*.coffee");
         $this->assetLoader->addDirectory(AssetsLoader::CSS, $this->oazaPublicDir."{$ds}css{$ds}*.css");
+
         $this->addJavascriptLibrary(JavascriptLibrary::JQUERY);
         $this->addJavascriptLibrary(JavascriptLibrary::JQUERY_UI);
+        $this->addJavascriptLibrary(JavascriptLibrary::JQUERY_TOOLS);
     }
 
     public function buildExternalSources(){
