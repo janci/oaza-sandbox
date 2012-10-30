@@ -26,9 +26,9 @@ common:
 
 	services:
 		authenticator: Authenticator
-		translator: \Oaza\Translator\DummyTranslator
+		translator: Oaza\Translator\DummyTranslator
 		oaza:
-			class: \Oaza\Oaza
+			class: Oaza\Oaza
 			setup:
 				- registerExternalSources()
 
