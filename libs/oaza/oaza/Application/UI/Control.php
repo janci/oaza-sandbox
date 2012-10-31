@@ -8,7 +8,7 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace Oaza\Application;
+namespace Oaza\Application\UI;
 
 use Oaza\Setting\Property;
 use Oaza\Developer\InvalidArgumentException;

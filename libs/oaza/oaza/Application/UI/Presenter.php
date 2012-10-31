@@ -8,7 +8,9 @@
  * the file license.txt that was distributed with this source code.
  */
 
-namespace Oaza\Application;
+namespace Oaza\Application\UI;
+
+use Oaza\Application\Adapter\IDriver;
 
 /**
  * Abstract Oaza presenter
@@ -16,7 +18,7 @@ namespace Oaza\Application;
 abstract class Presenter extends \Nette\Application\UI\Presenter
 {
     /** @var array */
-    private $oazaControls;
+    private $oazaDriver;
 
     /** @var array */
     private $oazaControlsProperties;
@@ -32,7 +34,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
      * @param \Nette\DI\Container $context
      * @param \Oaza\Oaza $oaza
      */
-    public function __construct(\Nette\DI\Container $context, \Oaza\Oaza $oaza=null, \Nette\Localization\ITranslator $translator=null){
+    public function __construct(\Nette\DI\Container $context, \Oaza\Oaza $oaza=null, \Nette\Localization\ITranslator $translator=null, IDriver $oazaAdapterDriver){
         parent::__construct($context);
 
         if(!isset($oaza)) {
@@ -41,6 +43,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
         }
 
         $this->oaza = $oaza;
+        $this->oazaDriver = $oazaAdapterDriver;
         $this->translator = $translator;
     }
 
@@ -63,8 +66,9 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
         $control = parent::createComponent($name);
         if(isset($control)) return $control;
 
-        if(isset($this->oazaControls, $this->oazaControls[$name])) {
-            $classname = $this->oazaControls[$name];
+        $controlEntity = $this->oazaDriver->getControlRepository()->getControlEntity($name);
+        if($controlEntity) {
+            $classname = $controlEntity->getClassname();
             $control = new $classname;
             if($control instanceof Control){
                 $control->startup();
@@ -74,9 +78,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
                 if(isset($this->translator))
                     $control->getTemplate()->setTranslator($this->translator);
 
-                if(isset($this->oazaControlsProperties, $this->oazaControlsProperties[$name]))
-                    $control->setPropertiesValues($this->oazaControlsProperties[$name]);
-
+                $control->setPropertiesValues($controlEntity->getProperties());
                 $control->load();
             }
             return $control;

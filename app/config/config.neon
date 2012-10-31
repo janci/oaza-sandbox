@@ -27,6 +27,7 @@ common:
 	services:
 		authenticator: Authenticator
 		translator: Oaza\Translator\DummyTranslator
+		oazaDriver: Oaza\Application\Adapter\Drivers\DummyDriver
 		oaza:
 			class: Oaza\Oaza
 			setup:

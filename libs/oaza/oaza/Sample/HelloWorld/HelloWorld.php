@@ -17,7 +17,7 @@ use Oaza\Setting\PropertyType;
 /**
  * Sample example for oaza control
  */
-class HelloWorld extends \Oaza\Application\Widget
+class HelloWorld extends \Oaza\Application\UI\Widget
 {
     public function startup(){
         parent::startup();
