@@ -9,6 +9,7 @@ libs/doctrine
 libs/kriswallsmith
 libs/symfony
 libs/composer
+libs/phpunit
 libs/oaza/temp/cache
 www/*.build.js
 www/*.build.css
