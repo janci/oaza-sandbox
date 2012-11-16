@@ -3,6 +3,7 @@ temp/cache
 temp/btfj.dat
 composer.lock
 libs/bin
+libs/oaza
 libs/coffeescript
 libs/nette
 libs/doctrine
