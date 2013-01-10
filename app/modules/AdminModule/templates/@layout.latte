@@ -1,0 +1,113 @@
+{default pageName="Test"}
+
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Nette Framework web application skeleton">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{block title|striptags|upper}Administrácia stránky {$pageName}{/block}</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/admin/v1.0/css/style.css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css.build.css">
+
+	{* <script src="http://code.jquery.com/jquery-1.8.1.min.js"></script> *}
+
+    <script src="{$basePath}/javascript.build.js"></script>
+    <script src="{$basePath}/coffee.build.js"></script>
+
+    <script src="{$basePath}/js/netteForms.js"></script>
+	{block head}{/block}
+</head>
+
+<body>
+<script> document.body.className+=' js' </script>
+    <div id="box-top">
+        <div id="menu-main">
+            <ul>
+                <li><a href="#" class="current">Textové stránky</a></li>
+                <li><a href="#">Banner na pozadí</a></li>
+                <li><a href="#">Úvodný banner</a></li>
+                <li><a href="#">Horný banner</a></li>
+                <li><a href="#">Hlavné menu</a></li>
+                <li><a href="#">Dolné menu</a></li>
+                <li><a href="#">Fotogaléria</a></li>
+                <li><a href="#">Nastavenia stránky</a></li>
+                <li><a href="#" class="light">~Obchod~</a></li>
+            </ul>
+        </div>
+        <div id="box-fastusermenu">
+            <ul>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Odhlásiť</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="wrapper">
+        <table id="wrapper-table">
+            <tr>
+                <td id="wrapper-table-left-column">
+                    <div id="panel-left">
+                        <div id="box-create-new"><a href="#" class="button-standard">Nová stránka</a></div>
+                        <div id="list-items">
+                             <ul>
+                                 <li><a href="#">Úvodná stránka</a></li>
+                                 <li><a href="#">O nás</a></li>
+                                 <li><a href="#">Kontakt</a></li>
+                                 <li><a href="#">Galéria</a></li>
+                             </ul>
+                        </div>
+                    </div>
+                </td>
+                <td id="wrapper-table-right-column">
+                    <div id="panel-right">
+                        <div id="content">
+                            <div class="form-post-data">
+                                <form action="#" method="POST">
+                                    <table>
+                                        <tr>
+                                            <th><label>Názov textovej stránky:</label></th>
+                                            <td><input class="text" type="text" /></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label>Url adresa:</label></th>
+                                            <td><input class="text" type="text" /></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label>Kľúčové slová:</label></th>
+                                            <td><textarea></textarea></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label>Text statickej stránky:</label></th>
+                                            <td><textarea></textarea></td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td><input type="submit" class="button button-standard" value="Pridať stránku" /></td>
+                                        </tr>
+                                    </table>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div id="box-footer">&copy; 2012 Švantner Ján</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+	{*<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+	{include #content}*}
+</body>
+</html>

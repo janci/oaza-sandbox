@@ -1,0 +1,17 @@
+Template:
+  type: entity
+  table: template
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+    template:
+      type: text
+  oneToMany:
+    pagesTypes:
+      targetEntity: PageType
+      mappedBy: template

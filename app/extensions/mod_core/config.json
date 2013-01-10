@@ -1,0 +1,12 @@
+{
+    "name":"mod_core",
+    "title":"Core v1.0",
+    "description":"Initialize core of CMS",
+    "keywords":["core"],
+    "category": "Core",
+    "version": "1.0",
+    "authors": [{
+        "name": "Ján Švantner",
+        "email": "posta.janci@gmail.com"
+    }]
+}

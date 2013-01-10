@@ -1,0 +1,10 @@
+parameters:
+    doctrine:
+        development: true
+        database:
+            driver: pdo_mysql
+            user: root
+            password: ""
+            charset: 'utf8'
+            dbname: foo
+

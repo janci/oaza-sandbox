@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo rm -rf ../temp/cache/_Nette.RobotLoader
+sudo -u www-data ./doctrine orm:schema-tool:update --force

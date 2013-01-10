@@ -6,7 +6,7 @@
 #
 common:
 	parameters:
-
+	includes: [doctrine.neon]
 	php:
 		date.timezone: Europe/Prague
 		# zlib.output_compression: yes
@@ -27,7 +27,8 @@ common:
 	services:
 		authenticator: Authenticator
 		translator: Oaza\Translator\DummyTranslator
-		oazaDriver: Oaza\Application\Adapter\Drivers\DummyDriver\DummyDriver
+#		oazaDriver: Oaza\Application\Adapter\Drivers\DummyDriver\DummyDriver
+		oazaDriver: OazaCMS\Oaza2\DoctrineDriver\DoctrineDriver
 		oaza:
 			class: Oaza\Oaza
 			setup:
@@ -38,5 +39,9 @@ common:
 
 
 production < common:
+	includes: [doctrine.prod.neon]
 
 development < common:
+	includes: [doctrine.dev.neon]
+
+console < development:

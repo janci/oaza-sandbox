@@ -1,0 +1,21 @@
+Menu:
+  type: entity
+  table: menu
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+#  fields:
+#    title:
+#      type: string
+#    name:
+#      type: string
+#    left:
+#      type: integer
+#    right:
+#      type: integer
+#    level:
+#      type: integer
+#    parent_id
+#      type: integer

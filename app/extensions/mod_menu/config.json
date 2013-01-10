@@ -1,0 +1,12 @@
+{
+    "name":"mod_menu",
+    "title":"Menu",
+    "description":"Display menu on website",
+    "keywords":["menu"],
+    "category": "Widget",
+    "version": "1.0",
+    "authors": [{
+        "name": "Ján Švantner",
+        "email": "posta.janci@gmail.com"
+    }]
+}

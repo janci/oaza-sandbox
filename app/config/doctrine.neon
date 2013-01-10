@@ -1,0 +1,8 @@
+services:
+    entityManagerSetup:
+        class: \Doctrine\ORM\Configuration
+        factory: \Doctrine\ORM\Tools\Setup::createYAMLMetadataConfiguration(\OazaCMS\Helpers\DoctrineLoader::getDirectories(),%doctrine.development%)
+
+    entityManager:
+        class: \Doctrine\ORM\EntityManager
+        factory: \Doctrine\ORM\EntityManager::create(%doctrine.database%, @entityManagerSetup)

@@ -1,0 +1,12 @@
+{
+    "name":"mod_copyright",
+    "title":"Copyright",
+    "description":"Display copyright on website",
+    "keywords":["company", "copyright"],
+    "category": "Widget",
+    "version": "1.0",
+    "authors": [{
+        "name": "Ján Švantner",
+        "email": "posta.janci@gmail.com"
+    }]
+}

@@ -1,0 +1,15 @@
+OazaCMS\Oaza2\DoctrineDriver\Entities\ControlEntity:
+  type: entity
+  table: control
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+    className:
+      type: string
+    properties:
+      type: text

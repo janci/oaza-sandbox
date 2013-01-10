@@ -1,0 +1,30 @@
+PageType:
+  type: entity
+  table: pagetype
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      type: string
+      unique: true
+    module:
+      type: string
+      nullable: true
+    presenter:
+      type: string
+    action:
+      type: string
+  oneToMany:
+    pages:
+      targetEntity: Page
+      mappedBy: type
+  manyToOne:
+    template:
+      targetEntity: Template
+      inversedBy: pagesTypes
+      joinColumn:
+        name: template_id
+        referencedColumnName: id

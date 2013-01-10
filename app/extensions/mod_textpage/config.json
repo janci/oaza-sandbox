@@ -1,0 +1,12 @@
+{
+    "name":"mod_textpage",
+    "title":"Text Pages",
+    "description":"Module to initialize text page in administration and frontend",
+    "keywords":["text", "page"],
+    "category": "PageType",
+    "version": "1.0",
+    "authors": [{
+        "name": "Ján Švantner",
+        "email": "posta.janci@gmail.com"
+    }]
+}

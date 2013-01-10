@@ -1,0 +1,35 @@
+Page:
+  type: entity
+  table: page
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    path:
+      type: string
+    expire:
+      type: datetime
+      nullable: true
+    title:
+      type: string
+    description:
+      type: text
+    keywords:
+      type: string
+    followed:
+      type: boolean
+    indexed:
+      type: boolean
+  manyToOne:
+    previous:
+      targetEntity: Page
+      inversedBy: parents
+      nullable: true
+    type:
+      targetEntity: PageType
+      inversedBy: pages
+      joinColumn:
+        name: pagetype_id
+        referencedColumnName: id
