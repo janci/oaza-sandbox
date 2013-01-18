@@ -1,3 +1,4 @@
+app/config/doctrine.neon
 log/*.log
 temp/cache
 temp/btfj.dat
