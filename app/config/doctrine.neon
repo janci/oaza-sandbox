@@ -1,3 +1,13 @@
+parameters:
+    doctrine:
+        development: true
+        database:
+            driver: pdo_mysql
+            user: root
+            password: NEW_PASS
+            charset: 'utf8'
+            dbname: foo
+
 services:
     entityManagerSetup:
         class: \Doctrine\ORM\Configuration
