@@ -37,11 +37,8 @@ common:
 
 	factories:
 
-
 production < common:
-	includes: [doctrine.prod.neon]
 
 development < common:
-	includes: [doctrine.dev.neon]
 
 console < development:
