@@ -32,4 +32,17 @@ class PageType
         return $this->template;
     }
 
+    public function getPresenter(){
+        return $this->presenter;
+    }
+
+    public function getModule(){
+        return $this->module;
+    }
+
+    public function getAction(){
+        return $this->action;
+    }
+
+
 }

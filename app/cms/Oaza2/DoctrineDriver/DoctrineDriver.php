@@ -5,6 +5,7 @@ namespace OazaCMS\Oaza2\DoctrineDriver;
 use Oaza\Application\Adapter\Drivers\DummyDriver\DummyDriver;
 use Oaza\Application\Adapter\IDriver;
 use OazaCMS\Oaza2\Repositories\ControlRepository;
+use OazaCMS\Oaza2\Repositories\RouteRepository;
 
 class DoctrineDriver extends DummyDriver /* implements IDriver */
 {
@@ -43,9 +44,9 @@ class DoctrineDriver extends DummyDriver /* implements IDriver */
      * Returns Router Repository implement in driver
      * @return \Oaza\Application\Adapter\RouteRepository\IRouteRepository
      */
-    /*public function getRouteRepository()
+    public function getRouteRepository()
     {
         return isset($this->routeRepository)? $this->routeRepository :
-            $this->routeRepository = new TranslateRepository($this->entityManager->getRepository('OazaCMS\Oaza2\DoctrineDriver\Entities\RouteEntity'));
-    } */
+            $this->routeRepository = new RouteRepository($this->entityManager->getRepository('Page'));
+    }
 }

@@ -1,7 +1,8 @@
 <?php
 
+use \Oaza\Application\Adapter\RouteRepository\IRouteEntity;
 
-class Page
+class Page implements IRouteEntity
 {
     private $id;
 
@@ -39,4 +40,33 @@ class Page
         return $this->title;
     }
 
+    public function getModule()
+    {
+        return $this->getPageType()->getModule();
+    }
+
+    public function getPresenter()
+    {
+        return $this->getPageType()->getPresenter();
+    }
+
+    public function getAction()
+    {
+        return $this->getPageType()->getAction();
+    }
+
+    public function getPageId()
+    {
+        return $this->id;
+    }
+
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    public function getExpireDate()
+    {
+        return $this->expire;
+    }
 }
